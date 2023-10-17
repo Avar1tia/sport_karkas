@@ -25,5 +25,17 @@ namespace test.Pages
         {
             InitializeComponent();
         }
+
+        private void Edit(object sender, RoutedEventArgs e)
+        {
+            // Создаем экземпляр второго окна
+            Windows.WindowOrder secondWindow = new Windows.WindowOrder();
+
+            // Показываем второе окно
+            secondWindow.Show();
+
+            // Если хочешь закрыть текущее окно при открытии нового, раскомментируй строку ниже
+            // this.Close();
+        }
     }
 }

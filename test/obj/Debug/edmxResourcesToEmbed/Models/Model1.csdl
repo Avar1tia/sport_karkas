@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="sportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="id">
     <Key>
       <PropertyRef Name="id1" />
     </Key>
-    <Property Name="id1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="type" Relationship="Self.FK_type_id" FromRole="id" ToRole="type" />
+    <Property Name="id1" Type="Int32" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="id_type" Relationship="Self.FK_id_type_id" FromRole="id" ToRole="id_type" />
+  </EntityType>
+  <EntityType Name="id_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_type1" Type="Int32" />
+    <NavigationProperty Name="id1" Relationship="Self.FK_id_type_id" FromRole="id_type" ToRole="id" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -18,35 +28,25 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="type">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="id_type" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="id1" Relationship="Self.FK_type_id" FromRole="type" ToRole="id" />
-  </EntityType>
-  <Association Name="FK_type_id">
-    <End Role="id" Type="Self.id" Multiplicity="1" />
-    <End Role="type" Type="Self.type" Multiplicity="*" />
+  <Association Name="FK_id_type_id">
+    <End Role="id" Type="Self.id" Multiplicity="0..1" />
+    <End Role="id_type" Type="Self.id_type" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="id">
         <PropertyRef Name="id1" />
       </Principal>
-      <Dependent Role="type">
-        <PropertyRef Name="id_type" />
+      <Dependent Role="id_type">
+        <PropertyRef Name="id_type1" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="dbo" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="sport" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="id" EntityType="Self.id" />
+    <EntitySet Name="id_type" EntityType="Self.id_type" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="type" EntityType="Self.type" />
-    <AssociationSet Name="FK_type_id" Association="Self.FK_type_id">
+    <AssociationSet Name="FK_id_type_id" Association="Self.FK_id_type_id">
       <End Role="id" EntitySet="id" />
-      <End Role="type" EntitySet="type" />
+      <End Role="id_type" EntitySet="id_type" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

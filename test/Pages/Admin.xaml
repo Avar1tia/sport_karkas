@@ -9,6 +9,12 @@
       Title="Admin">
 
     <Grid>
-        <TextBlock>Admin</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Button Content="Open Second Window" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Edit" Height="30"/>
+        </StackPanel>
     </Grid>
 </Page>

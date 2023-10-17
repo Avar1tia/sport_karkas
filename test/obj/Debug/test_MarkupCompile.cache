@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Администратор\source\repos\test\test\obj\Debug\
+C:\Users\SystemX\Desktop\Sport\test\obj\Debug\
 test
 none
 false
 DEBUG;TRACE
-C:\Users\Администратор\source\repos\test\test\App.xaml
-5827383324
-21628168987
-17-325190264
-181625735074
-MainWindow.xaml;Pages\Admin.xaml;Pages\Authorization.xaml;Pages\Manager.xaml;Pages\User.xaml;
+C:\Users\SystemX\Desktop\Sport\test\App.xaml
+9209552952
+2-1223955081
+211606600397
+18-93608627
+MainWindow.xaml;Pages\Admin.xaml;Pages\Authorization.xaml;Pages\ListProducts.xaml;Pages\Manager.xaml;Pages\Redact.xaml;Pages\User.xaml;Pages\ViewOneOrder.xaml;Windows\WindowOrder.xaml;
 
 False
 

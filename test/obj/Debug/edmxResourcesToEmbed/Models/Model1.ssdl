@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище testModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище sportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="id">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="id_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_type" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -17,34 +26,25 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="type">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="pass" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="id_type" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_type_id">
-    <End Role="id" Type="Self.id" Multiplicity="1" />
-    <End Role="type" Type="Self.type" Multiplicity="*" />
+  <Association Name="FK_id_type_id">
+    <End Role="id" Type="Self.id" Multiplicity="0..1" />
+    <End Role="id_type" Type="Self.id_type" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="id">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="type">
+      <Dependent Role="id_type">
         <PropertyRef Name="id_type" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище testModelContainer">
+  <EntityContainer Name="Хранилище sportModelContainer">
     <EntitySet Name="id" EntityType="Self.id" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="id_type" EntityType="Self.id_type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="type" EntityType="Self.type" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_type_id" Association="Self.FK_type_id">
+    <AssociationSet Name="FK_id_type_id" Association="Self.FK_id_type_id">
       <End Role="id" EntitySet="id" />
-      <End Role="type" EntitySet="type" />
+      <End Role="id_type" EntitySet="id_type" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

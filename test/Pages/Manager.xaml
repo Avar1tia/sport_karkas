@@ -9,6 +9,10 @@
       Title="Manager">
 
     <Grid>
-        <TextBlock>Manager</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
     </Grid>
 </Page>

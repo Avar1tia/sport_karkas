@@ -8,6 +8,6 @@ namespace test.Classes
 {
     class connect
     {
-        public static Models.dbo modeldb;
+        public static Models.sport modeldb;
     }
 }

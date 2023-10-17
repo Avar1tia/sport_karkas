@@ -24,5 +24,13 @@ namespace test.Pages
         {
             InitializeComponent();
         }
+
+        private void Redact(object sender, RoutedEventArgs e)
+        {
+
+            Windows.WindowOrder secondWindow = new Windows.WindowOrder();
+            secondWindow.Show();
+
+        }
     }
 }

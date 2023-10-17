@@ -14,5 +14,7 @@
         <TextBlock FontStyle="Italic" FontSize="75" HorizontalAlignment="Center" >Спорт</TextBlock>
         <Frame Name="MainFrame" Grid.Row="1"></Frame>
         <Image  Source="Безымянный.png" Height="100" HorizontalAlignment="Left"/>
+
+        
     </Grid>
 </Window>

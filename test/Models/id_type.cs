@@ -12,12 +12,12 @@ namespace test.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class type
+    public partial class id_type
     {
         public int id { get; set; }
         public string login { get; set; }
         public string pass { get; set; }
-        public int id_type { get; set; }
+        public Nullable<int> id_type1 { get; set; }
     
         public virtual id id1 { get; set; }
     }

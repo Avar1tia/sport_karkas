@@ -17,13 +17,13 @@ namespace test.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public id()
         {
-            this.type = new HashSet<type>();
+            this.id_type = new HashSet<id_type>();
         }
     
         public int id1 { get; set; }
-        public string id_type { get; set; }
+        public string role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<type> type { get; set; }
+        public virtual ICollection<id_type> id_type { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace test.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbo : DbContext
+    public partial class sport : DbContext
     {
-        public dbo()
-            : base("name=dbo")
+        public sport()
+            : base("name=sport")
         {
         }
     
@@ -26,7 +26,7 @@ namespace test.Models
         }
     
         public virtual DbSet<id> id { get; set; }
+        public virtual DbSet<id_type> id_type { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<type> type { get; set; }
     }
 }

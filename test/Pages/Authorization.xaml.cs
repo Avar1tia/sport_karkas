@@ -24,23 +24,32 @@ namespace test.Pages
         public Authorization()
         {
             InitializeComponent();
-            connect.modeldb = new Models.dbo();
+            connect.modeldb = new Models.sport();
         }
 
         private void Vhod(object sender, RoutedEventArgs e)
         {
-            var userObj = connect.modeldb.type.FirstOrDefault(x => x.login == Login.Text && Password.Password == x.pass);
-            if (userObj.id_type == 1)
+            var userObj = connect.modeldb.id_type.FirstOrDefault(x => x.login == Login.Text && Password.Password == x.pass);
+            if (userObj == null)
             {
-                manager.MainFrame.Navigate(new Admin());
+                // Пользователь не найден
+                MessageBox.Show("Пользователь не найден"); // Пользователь не найденw
             }
-            if (userObj.id_type == 2)
+            else
             {
-                manager.MainFrame.Navigate(new Manager());
-            }
-            if (userObj.id_type == 3)
-            {
-                manager.MainFrame.Navigate(new User());
+                if (userObj.id == 1)
+                {
+                    manager.MainFrame.Navigate(new ListProducts());
+                }
+                else if (userObj.id == 2)
+                {
+                    Windows.WindowOrder secondWindow = new Windows.WindowOrder();
+                    secondWindow.Show();
+                }
+                else if (userObj.id == 3)
+                {
+                    manager.MainFrame.Navigate(new ListProducts()); 
+                }
             }
         }
     }
